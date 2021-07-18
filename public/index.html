@@ -28,13 +28,29 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+
+// Get a reference to the storage service,
+var storage = firebase.storage();
+
+// Create a storage reference
+var storageRef = storage.ref();
+// Create a child reference
+var trailsRef = storageRef.child('trails');
+// trailsRef now points to 'trails'
+
+// Child references can also take paths delimited by '/'
+var spaceRef = storageRef.child('trails/index.html');
+// spaceRef now points to "trails/index.html"
+// trailsRef still points to "trails"
+
+
 </script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.css" />
     <script type="text/javascript">
       // FirebaseUI config.
       var uiConfig = {
-        signInSuccessUrl: 'current.html',
+        signInSuccessUrl: '/trails/',
         signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
           firebase.auth.GoogleAuthProvider.PROVIDER_ID,
