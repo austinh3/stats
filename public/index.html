@@ -3,50 +3,29 @@
   <head>
     <meta charset="UTF-8">
     <title>A H3 Stats and maps</title>
-    <!-- *******************************************************************************************
-       * TODO(DEVELOPER): Paste the initialization snippet from:
-       * Firebase Console > Overview > Add Firebase to your web app. *
-       ***************************************************************************************** -->
+   <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
+    <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-auth.js"></script>
-
-<script>
-  // stats app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-    apiKey: "AIzaSyBjVTL7ErtxxlxfGeEMjHqIKKC13g05IkQ",
-    authDomain: "stats-6969.firebaseapp.com",
-    projectId: "stats-6969",
-    storageBucket: "stats-6969.appspot.com",
-    messagingSenderId: "776652011241",
-    appId: "1:776652011241:web:d39ae585e709aadd022278"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-
-// Get a reference to the storage service,
-var storage = firebase.storage();
-
-// Create a storage reference
-var storageRef = storage.ref();
-// Create a child reference
-var trailsRef = storageRef.child('trails');
-// trailsRef now points to 'trails'
-
-// Child references can also take paths delimited by '/'
-var spaceRef = storageRef.child('trails/index.html');
-// spaceRef now points to "trails/index.html"
-// trailsRef still points to "trails"
-
-
-</script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.css" />
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBjVTL7ErtxxlxfGeEMjHqIKKC13g05IkQ",
+        authDomain: "stats-6969.firebaseapp.com",
+        projectId: "stats-6969",
+        storageBucket: "stats-6969.appspot.com",
+        messagingSenderId: "776652011241",
+        appId: "1:776652011241:web:d39ae585e709aadd022278"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
     <script type="text/javascript">
       // FirebaseUI config.
       var uiConfig = {
@@ -56,7 +35,13 @@ var spaceRef = storageRef.child('trails/index.html');
           firebase.auth.GoogleAuthProvider.PROVIDER_ID,
           firebase.auth.FacebookAuthProvider.PROVIDER_ID,
           firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-/* Providers not used-
+          //microsoft.com client secrete expires 7/18/2023. 
+          {
+            provider: 'microsoft.com',
+            loginHintKey: 'login_hint'
+          },
+
+        /* Providers not used-
           firebase.auth.GithubAuthProvider.PROVIDER_ID,
           firebase.auth.EmailAuthProvider.PROVIDER_ID,
           firebase.auth.PhoneAuthProvider.PROVIDER_ID,
