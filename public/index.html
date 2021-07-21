@@ -2,90 +2,92 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>A H3 Stats and maps</title>
-   <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+    <title>FirebaseUI Auth Demo</title>
+    <link rel="manifest" href="manifest.json">
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase.js"></script>
+    <script src="/js/config.js"></script>
+    <script src="/js/common.js"></script>
+    <link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
+    
+  </head>
+  <body>
+    <div id="container">
+      <h3>FirebaseUI Demo</h3>
+      <div id="loading">Loading...</div>
+      <div id="loaded" class="hidden">
+        <div id="main">
+          <div id="user-signed-in" class="hidden">
+            <div id="user-info">
+              <div id="photo-container">
+                <img id="photo">
+              </div>
+              <div id="name"></div>
+              <div id="email"></div>
+              <div id="phone"></div>
+              <div id="is-new-user"></div>
+              <div class="clearfix"></div>
+            </div>
+            <p>
+              <button id="sign-out">Sign Out</button>
+              <button id="delete-account">Delete account</button>
+            </p>
+          </div>
+          <div id="user-signed-out" class="hidden">
+            <h4>You are signed out.</h4>
+            <fieldset>
+              <legend>Configuration</legend>
+              reCAPTCHA mode for Phone Auth:
+              <label for="recaptcha-normal">
+                <input type="radio" id="recaptcha-normal" name="recaptcha" value="normal">
+                Normal
+              </label>
+              <label for="recaptcha-invisible">
+                <input type="radio" id="recaptcha-invisible" name="recaptcha" value="invisible">
+                Invisible
+              </label><br>
+              Email signInMethod:
+              <label for="email-signInMethod-password">
+                <input type="radio" id="email-signInMethod-password" name="emailSignInMethod"
+                       value="password">
+                Password
+              </label>
+              <label for="email-signInMethod-emailLink">
+                <input type="radio" id="email-signInMethod-emailLink" name="emailSignInMethod"
+                       value="emailLink">
+                Email Link
+              </label><br>
+              <label for="disableEmailSignUpStatus">Disable email sign up:</label>
+              <input type="checkbox" id="email-disableSignUp-status" name="disableEmailSignUpStatus">
+            </fieldset>
+            <p>
+              <button id="sign-in-with-redirect">Sign In with Redirect</button>
+              <button id="sign-in-with-popup">Sign In with Popup</button>
+            </p>
+            <div id="firebaseui-spa">
+              <h5>Single Page Application mode:</h5>
+              <div id="firebaseui-container"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/8.7.0/firebase-app.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-storage.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.css" />
-    <script>
-      // Your web app's Firebase configuration
-      var firebaseConfig = {
-        apiKey: "AIzaSyBjVTL7ErtxxlxfGeEMjHqIKKC13g05IkQ",
-        authDomain: "stats-6969.firebaseapp.com",
-        projectId: "stats-6969",
-        storageBucket: "stats-6969.appspot.com",
-        messagingSenderId: "776652011241",
-        appId: "1:776652011241:web:d39ae585e709aadd022278"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-    </script>
-
-    <script type="text/javascript">
-       function refStorageFull() {
-         var storageRef = firebase.storage().ref();
-         var trailsRef = storageRef.child('trails');
-         var fileName = 'index.html';
-         var spaceRef = trailsRef.child(fileName);
-        // File path is 'trails/index.html'
-        var path = spaceRef.fullPath;
-        var name = spaceRef.name;
-        // Points to 'trails'
-        var trailsRef = spaceRef.parent;
-        return path;
-      }
-      
-      // FirebaseUI config.
-      var uiConfig = {
-        signInSuccessUrl: 'trails/index.html',
-        signInOptions: [
-          // Leave the lines as is for the providers you want to offer your users.
-          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-          {
-            provider: 'apple.com',
-          },
-           //microsoft.com client secret expires 7/18/2023. 
-           {
-            provider: 'microsoft.com',
-            loginHintKey: 'login_hint'
-          },
-          firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-
-        /* Providers not used-
-          firebase.auth.GithubAuthProvider.PROVIDER_ID,
-          firebase.auth.EmailAuthProvider.PROVIDER_ID,
-          firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-          firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
-           */
-        ],
-        // tosUrl and privacyPolicyUrl accept either url string or a callback
-        // function.
-        // Terms of service url/callback.
-        tosUrl: 'tos.html',
-        // Privacy policy url/callback.
-        privacyPolicyUrl: function() {
-          window.location.assign('privacy-policy.html');
-        }
-      };
-
-      // Initialize the FirebaseUI Widget using Firebase.
-      var ui = new firebaseui.auth.AuthUI(firebase.auth());
-      // The start method will wait until the DOM is loaded.
-      ui.start('#firebaseui-auth-container', uiConfig);
-    </script>
-  </head>
-  <body>
-    <!-- The surrounding HTML is left untouched by FirebaseUI.
-         Your app may use that space for branding, controls and other customizations.-->
-    <h1>Stats and maps</h1>
-    <h3>loading...</h3>
-
-    <div id="firebaseui-auth-container"></div>
+     <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-auth.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-storage.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.js"></script>
+     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.css" />
+ 
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+<script src="/js/app.js"></script>
   </body>
 </html>
