@@ -27,22 +27,35 @@
     </script>
 
     <script type="text/javascript">
+       function refStorageFull() {
+         var storageRef = firebase.storage().ref();
+         var trailsRef = storageRef.child('trails');
+         var fileName = 'index.html';
+         var spaceRef = trailsRef.child(fileName);
+        // File path is 'trails/index.html'
+        var path = spaceRef.fullPath;
+        var name = spaceRef.name;
+        // Points to 'trails'
+        var trailsRef = spaceRef.parent;
+        return path;
+      }
+      
       // FirebaseUI config.
       var uiConfig = {
-        signInSuccessUrl: '/trails/',
+        signInSuccessUrl: 'trails/index.html',
         signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
-          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
           firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-          firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-          //microsoft.com client secrete expires 7/18/2023. 
-          {
-            provider: 'microsoft.com',
-            loginHintKey: 'login_hint'
-          },
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
           {
             provider: 'apple.com',
           },
+           //microsoft.com client secret expires 7/18/2023. 
+           {
+            provider: 'microsoft.com',
+            loginHintKey: 'login_hint'
+          },
+          firebase.auth.TwitterAuthProvider.PROVIDER_ID,
 
         /* Providers not used-
           firebase.auth.GithubAuthProvider.PROVIDER_ID,
@@ -72,6 +85,7 @@
          Your app may use that space for branding, controls and other customizations.-->
     <h1>Stats and maps</h1>
     <h3>loading...</h3>
+
     <div id="firebaseui-auth-container"></div>
   </body>
 </html>
