@@ -185,6 +185,8 @@ function handleConfigChange() {
 /**
  * Initializes the app.
  */
+/**
+ * Not in use for this web app.
 var initApp = function() {
   document.getElementById('sign-in-with-redirect').addEventListener(
       'click', signInWithRedirect);
@@ -220,5 +222,5 @@ var initApp = function() {
   document.getElementById("email-disableSignUp-status").checked =
       getDisableSignUpStatus();  
 };
-
+ */
 window.addEventListener('load', initApp);
