@@ -185,8 +185,7 @@ function handleConfigChange() {
 /**
  * Initializes the app.
  */
-/**
- * Not in use for this web app.
+
 var initApp = function() {
   document.getElementById('sign-in-with-redirect').addEventListener(
       'click', signInWithRedirect);
@@ -199,7 +198,6 @@ var initApp = function() {
       'click', function() {
         deleteAccount();
       });
-
   document.getElementById('recaptcha-normal').addEventListener(
       'change', handleConfigChange);
   document.getElementById('recaptcha-invisible').addEventListener(
@@ -222,5 +220,5 @@ var initApp = function() {
   document.getElementById("email-disableSignUp-status").checked =
       getDisableSignUpStatus();  
 };
- */
+
 window.addEventListener('load', initApp);
