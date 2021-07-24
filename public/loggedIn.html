@@ -11,8 +11,9 @@
    <script src="/__/firebase/8.8.0/firebase-auth.js"></script>
    <script src="/__/firebase/8.8.0/firebase-storage.js"></script>
 <!-- Initialize Firebase -->
-<!-- <script src="/__/firebase/init.js"></script> -->
-<script>  
+<script src="/__/firebase/init.js"></script>
+<!--I don't think the script below is needed
+  <script>  
 // Initialize Firebase  
   const firebaseConfig = {
   apiKey: "AIzaSyBjVTL7ErtxxlxfGeEMjHqIKKC13g05IkQ",
@@ -23,7 +24,8 @@
   appId: "1:776652011241:web:d39ae585e709aadd022278"
   };  
   firebase.initializeApp(firebaseConfig);  
-</script>
+</script> 
+-->
  </head> 
  <body>  
  <!-- A simple example script to add text to the page that displays the user's Display Name and Email -->  
@@ -39,7 +41,7 @@
    // Otherwise ignore if this is a token refresh.  
    // Update the current user UID.  
    currentUid = user.uid;  
-   document.body.innerHTML = '<h1> Congrats ' + user.displayName + ', you are done! </h1> <h2> Now get back to what you love building. </h2> <h2> Need to verify your email address or reset your password? Firebase can handle all of that for you using the email you provided: ' + user.email + '. <h/2>';  
+   document.body.innerHTML = '<h1>AH3 Stats & Maps</h1><p>' + user.displayName + ' logged in.</p> <ul><li><a href=#>Last Sunday’s Trail</a></li><li><a href=#>Hound Trail Counts</a></li><li><a href=#>Summary of Trails</a></li><li><a href=#>Map of Trails this Junta Year</a></li><li><a href=#>Last Year’s History</a></li><li><a href=#>AH3 Timeline</a></li><li><a href=#>Hash Trash</a></li></ul>';  
   } else {  
    // Sign out operation. Reset the current user UID.  
    currentUid = null;  
@@ -49,6 +51,6 @@
  </script>  
 </head> 
 <body>
-<h1>Congrats you're done! Now get back to what you love building.</h1>  
+  <div id="loader">Loading...</div>
 </body>
 </html>
