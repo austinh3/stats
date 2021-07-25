@@ -16,7 +16,9 @@
  <!-- The code below initializes the sign-in widget from FirebaseUI web. -->  
  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
- <script type="text/javascript">
+ <link rel="stylesheet" type="text/css" href="style.css" media=”screen” />
+
+<script type="text/javascript">
   // FirebaseUI config.
   var uiConfig = {
     callbacks: {
@@ -50,7 +52,7 @@
     queryParameterForWidgetMode: 'mode',
     // Query parameter name for sign in success url.
     queryParameterForSignInSuccessUrl: 'signInSuccessUrl',
-    // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+    // Will use redirect instead of popup for IDP Providers sign-in flow.
     signInFlow: 'redirect',
     signInSuccessUrl: 'loggedIn.html',
     signInOptions: [
@@ -91,8 +93,9 @@
 </script>  
 </head>
   <body>  
-       <h1 align="center" style="color:white;">AH3 Stats and Maps</h1>  
-        <div id="firebaseui-auth-container"></div>  
-        <div id="loader">Loading...</div>
+    <div id="container">  
+      <div id="firebaseui-auth-container"></div>  
+      <div id="loader">Loading...</div>
+    </div>
   </body>  
  </html> 
