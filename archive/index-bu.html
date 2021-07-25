@@ -12,46 +12,28 @@
    <script src="/__/firebase/8.8.0/firebase-auth.js"></script>
    <script src="/__/firebase/8.8.0/firebase-storage.js"></script>
 <!-- Initialize Firebase -->
-   <script src="/__/firebase/init.js"></script> 
+   <script src="/__/firebase/init.js"></script>
+<!--   Content below is in the init.js above.
+  <script>  
+// Initialize Firebase  
+     const firebaseConfig = {
+     apiKey: "AIzaSyBjVTL7ErtxxlxfGeEMjHqIKKC13g05IkQ",
+     authDomain: "stats-6969.firebaseapp.com",
+     projectId: "stats-6969",
+     storageBucket: "stats-6969.appspot.com",
+     messagingSenderId: "776652011241",
+     appId: "1:776652011241:web:d39ae585e709aadd022278"
+     };  
+     firebase.initializeApp(firebaseConfig);  
+   </script> 
+-->  
  <!-- The code below initializes the sign-in widget from FirebaseUI web. -->  
  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
  <script type="text/javascript">
+    
   // FirebaseUI config.
   var uiConfig = {
-    callbacks: {
-      signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-        var user = authResult.user;
-        var credential = authResult.credential;
-        var isNewUser = authResult.additionalUserInfo.isNewUser;
-        var providerId = authResult.additionalUserInfo.providerId;
-        var operationType = authResult.operationType;
-        // Do something with the returned AuthResult.
-        // Return type determines whether we continue the redirect
-        // automatically or whether we leave that to developer to handle.
-        return true;
-      },
-      signInFailure: function(error) {
-        // Some unrecoverable error occurred during sign-in.
-        // Return a promise when error handling is completed and FirebaseUI
-        // will reset, clearing any UI. This commonly occurs for error code
-        // 'firebaseui/anonymous-upgrade-merge-conflict' when merge conflict
-        // occurs. Check below for more details on this.
-        return handleUIError(error);
-      },
-      uiShown: function() {
-        // The widget is rendered.
-        // Hide the loader.
-        document.getElementById('loader').style.display = 'none';
-      }
-    },
-    credentialHelper: firebaseui.auth.CredentialHelper.NONE,
-    // Query parameter name for mode.
-    queryParameterForWidgetMode: 'mode',
-    // Query parameter name for sign in success url.
-    queryParameterForSignInSuccessUrl: 'signInSuccessUrl',
-    // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-    signInFlow: 'redirect',
     signInSuccessUrl: 'loggedIn.html',
     signInOptions: [
       // Leave the lines as is for the providers you want to offer your users.
@@ -93,6 +75,5 @@
   <body>  
        <h1 align="center" style="color:white;">AH3 Stats and Maps</h1>  
         <div id="firebaseui-auth-container"></div>  
-        <div id="loader">Loading...</div>
   </body>  
  </html> 

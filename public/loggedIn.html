@@ -1,0 +1,54 @@
+<!DOCTYPE html>  
+ <html lang="en">  
+ <head>  
+   <title>AH3 - logged in</title>  
+   <meta charset="UTF-8">   
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/8.8.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+   <script src="/__/firebase/8.8.0/firebase-auth.js"></script>
+   <script src="/__/firebase/8.8.0/firebase-storage.js"></script>
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+</head> 
+ <body>  
+ <!-- A simple example script to add text to the page that displays the user's Display Name and Email -->  
+ <script>  
+ // Track the UID of the current user.  
+ var currentUid = null;  
+ firebase.auth().onAuthStateChanged(function(user) {  
+  // onAuthStateChanged listener triggers every time the user ID token changes.  
+  // This could happen when a new user signs in or signs out.  
+  // It could also happen when the current user ID token expires and is refreshed.  
+  if (user && user.uid != currentUid) {  
+   // Update the UI when a new user signs in.  
+   // Otherwise ignore if this is a token refresh.  
+   // Update the current user UID.  
+   currentUid = user.uid;  
+   document.body.innerHTML = '<h1>AH3 Stats & Maps</h1><p>' + user.displayName + ' logged in.</p><ul><li><a href="javascript:UserAccount.UserSignOutOption()" >Sign Out </a></li><li><a href=#>Last Sunday’s Trail</a></li><li><a href=#>Hound Trail Counts</a></li><li><a href=#>Summary of Trails</a></li><li><a href=#>Map of Trails this Junta Year</a></li><li><a href=#>Last Year’s History</a></li><li><a href=#>AH3 Timeline</a></li><li><a href=#>Hash Trash</a></li></ul>';  
+  } else {  
+   // Sign out operation. Reset the current user UID.  
+   currentUid = null;  
+   console.log("no user signed in");  
+   
+  }  
+ });  
+ var ApplicationUserManaged = (function () {
+       function ApplicationUserManaged() { }
+       ApplicationUserManaged.prototype.UserSignOutOption = function () {
+           firebase.auth().signOut();
+           setTimeout(function () {
+               location.replace("https://austin-stats.h3.beer");
+           }, 3000);
+       }
+       return ApplicationUserManaged;
+   } ());
+ var UserAccount = new ApplicationUserManaged();
+ </script>  
+</head> 
+<body>
+  <div id="loader">Loading...</div>
+</body>
+</html>
