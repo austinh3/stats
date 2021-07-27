@@ -33,7 +33,7 @@
 starsRef.getDownloadURL()
 .then((url) => {
   // Insert url into an <a> tag to "download"
-    document.getElementById('linkbox').innerHTML = '<a href="' +  url + '">stats and maps in storage</a>';
+    document.getElementById('linkbox').innerHTML = '<a href="' +  url + '">Proceed to Stats and maps</a>';
 })
 .catch((error) => {
   // A full list of error codes is available at
@@ -66,7 +66,10 @@ starsRef.getDownloadURL()
    currentUid = user.uid;  
 
 
-   document.body.innerHTML = '<div id="container"><h1>AH3 Stats & Maps</h1><p>' + user.displayName + ' logged in.</p><div id="list"><ul><li><a href="javascript:UserAccount.UserSignOutOption()" >Sign Out </a></li><li><span id="linkbox"></span></li><li><a href=#>Hound Trail Counts</a></li><li><a href=#>Summary of Trails</a></li><li><a href=#>Map of Trails this Junta Year</a></li><li><a href=#>Last Year’s History</a></li><li><a href=#>AH3 Timeline</a></li><li><a href=#>Hash Trash</a></li></ul></div></div>';  
+   document.body.innerHTML = '<div id="container"><h1>AH3 Stats & Maps</h1><p>' + user.displayName + ' logged in. <a href="javascript:UserAccount.UserSignOutOption()" >Sign Out </a><br /><span id="linkbox"></span></p></div>';  
+
+   // <
+
   } else {  
    // Sign out operation. Reset the current user UID.  
    currentUid = null;  
