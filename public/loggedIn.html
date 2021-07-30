@@ -66,7 +66,7 @@ starsRef.getDownloadURL()
    currentUid = user.uid;  
 
 
-   document.body.innerHTML = '<div id="container"><h1>AH3 Stats & Maps</h1><p>' + user.displayName + ' logged in. <a href="javascript:UserAccount.UserSignOutOption()" >Sign Out </a><br /><span id="linkbox"></span></p></div>';  
+   document.body.innerHTML = '<div id="container"><h1>AH3 Stats & Maps</h1><p>' + user.displayName + ' logged in. <a href="javascript:UserAccount.UserSignOutOption()">Sign Out </a><br /><span id="linkbox"></span></p><a id="deleteaccount" href="#">Delete account</a></p></div>';  
 
    // <
 
@@ -88,6 +88,7 @@ starsRef.getDownloadURL()
        return ApplicationUserManaged;
    } ());
  var UserAccount = new ApplicationUserManaged();
+
  </script>  
 </head> 
 <body>
