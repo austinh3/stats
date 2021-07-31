@@ -1,23 +1,34 @@
-<!DOCTYPE html>  
- <html lang="en">  
- <head>  
-   <title>AH3 - logged in</title>  
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AH3 - Stats</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/8.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-   <script src="/__/firebase/8.8.0/firebase-auth.js"></script>
-   <script src="/__/firebase/8.8.0/firebase-storage.js"></script>
-   
-<link type="text/css" rel="stylesheet" href="style.css" />
+<!-- TODO: Add SDKs for Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
 
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
-
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBjVTL7ErtxxlxfGeEMjHqIKKC13g05IkQ",
+    authDomain: "stats-6969.firebaseapp.com",
+    projectId: "stats-6969",
+    storageBucket: "stats-6969.appspot.com",
+    messagingSenderId: "776652011241",
+    appId: "1:776652011241:web:d39ae585e709aadd022278"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 </head> 
  <body>   
  <script>  
