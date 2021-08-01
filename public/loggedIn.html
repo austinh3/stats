@@ -77,7 +77,7 @@ starsRef.getDownloadURL()
    currentUid = user.uid;  
 
 
-   document.body.innerHTML = '<div id="container"><h1>AH3 Stats & Maps</h1><p>' + user.displayName + ' logged in. <a href="javascript:UserAccount.UserSignOutOption()">Sign Out </a><br /><span id="linkbox"></span></p><a id="deleteaccount" href="#">Delete account</a></p></div>';  
+   document.body.innerHTML = '<div id="container"><h1 class="title">AH3 Stats & Maps</h1><p>' + user.displayName + ' logged in. <a href="javascript:UserAccount.UserSignOutOption()">Sign Out </a><br /><span id="linkbox"></span></p><a href="javascript:UserAccountDelete.UserDelete()">Delete account</a></p></div>';  
 
    // <
 
@@ -100,11 +100,28 @@ starsRef.getDownloadURL()
    } ());
  var UserAccount = new ApplicationUserManaged();
 
+ var deleteAccount = (function() {
+      function ApplicationUserDeleted() { }
+      ApplicationUserDeleted.prototype.UserDelete = function () {
+         firebase.auth().delete();
+         setTimeout(function() {
+           console.log("Account Deleted")
+          location.replace("https://austin-stats.h3.beer");
+        }, 500);
+      }
+  return ApplicationUserDeleted;
+} ());
+
+var UserAccountDelete = new deleteAccount();
  </script>  
 </head> 
 <body>
-  <div id="container"></div>
+  <Header></Header>
+  <nav></nav>
+  <section>
      <div id="loader">Loading...</div>
-  
+     <div id="container"></div>
+    </section>
+  <footer></footer>
 </body>
 </html>
