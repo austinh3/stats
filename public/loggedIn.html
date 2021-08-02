@@ -82,7 +82,7 @@ starsRef.getDownloadURL()
        ApplicationUserManaged.prototype.UserSignOutOption = function () {
            firebase.auth().signOut();
            setTimeout(function () {
-               location.replace("https://austin-stats.h3.beer");
+               location.replace("/");
            }, 500);
        }
        return ApplicationUserManaged;
