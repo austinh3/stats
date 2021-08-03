@@ -36,8 +36,9 @@
         return false;
       }
     },
-    // Opens IDP Providers sign-in flow in a popup.
-    'signInFlow': 'popup',
+    // Default is to redirect to IDP Providers.
+    // Uncomment line below to open IDP Providers sign-in flow in a popup.
+    // 'signInFlow': 'popup',
     'signInOptions': [
        // Leave the lines as is for the providers you want to offer your users.
        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -70,8 +71,9 @@
     }
   };
 }
-
+// Make a URL for the file on storage for logged in users
 var auth = firebase.auth();
+
 var storageRef = firebase.storage().ref();
 // Create a reference to the file we want to download
 var trailsRef = storageRef.child('trails/index.html');
