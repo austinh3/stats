@@ -195,7 +195,7 @@ function handleConfigChange() {
 
 /**
  * Initializes the app.
-
+*/
  var initApp = function() {
   document.getElementById('sign-in-with-redirect').addEventListener(
       'click', signInWithRedirect);
@@ -237,4 +237,3 @@ function handleConfigChange() {
 };
 
 window.addEventListener('load', initApp);
- */
