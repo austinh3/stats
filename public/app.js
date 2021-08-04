@@ -41,7 +41,9 @@
     // 'signInFlow': 'popup',
     'signInOptions': [
        // Leave the lines as is for the providers you want to offer your users.
-       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      firebase.auth.EmailAuthProvider.PROVIDER_ID,
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      /* Providers not used-
        {
          provider: 'apple.com',
        },
@@ -50,11 +52,9 @@
          provider: 'microsoft.com',
          loginHintKey: 'login_hint'
        },
-       firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-         /* Providers not used-
+      firebase.auth.TwitterAuthProvider.PROVIDER_ID,
       firebase.auth.FacebookAuthProvider.PROVIDER_ID,
       firebase.auth.GithubAuthProvider.PROVIDER_ID,
-      firebase.auth.EmailAuthProvider.PROVIDER_ID,
       firebase.auth.PhoneAuthProvider.PROVIDER_ID,
       firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
        */  
@@ -71,6 +71,8 @@
     }
   };
 }
+/* 
+//removing the call to objects in storage
 // Make a URL for the file on storage for logged in users
 var auth = firebase.auth();
 
@@ -105,7 +107,7 @@ trailsRef.getDownloadURL()
       break;
   }
 });
-
+ */
 // Initialize the FirebaseUI Widget using Firebase.
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 // Disable auto-sign in.

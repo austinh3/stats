@@ -6,7 +6,7 @@
 <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script> -->
     <script src="config.js"></script>
     <script src="common.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
@@ -37,7 +37,9 @@
             },
             'signInOptions': [
   // Leave the lines as is for the providers you want to offer your users.
-  firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+  /* Providers not used-
       {
         provider: 'apple.com',
       },
@@ -48,10 +50,8 @@
       },
       firebase.auth.TwitterAuthProvider.PROVIDER_ID,
 
-    /* Providers not used-
       firebase.auth.FacebookAuthProvider.PROVIDER_ID,
       firebase.auth.GithubAuthProvider.PROVIDER_ID,
-      firebase.auth.EmailAuthProvider.PROVIDER_ID,
       firebase.auth.PhoneAuthProvider.PROVIDER_ID,
       firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
        */
