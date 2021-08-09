@@ -1,11 +1,15 @@
 {
   "hosting": {
+    "target": "stats",
     "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ]
+  },
+  "storage": {
+    "rules": "storage.rules"
   },
   "emulators": {
     "auth": {
@@ -16,12 +20,6 @@
     },
     "ui": {
       "enabled": true
-    },
-    "storage": {
-      "port": 9199
     }
-  },
-  "storage": {
-    "rules": "storage.rules"
   }
 }

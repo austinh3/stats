@@ -12,11 +12,18 @@
  * limitations under the License.
  */
 
-var firebaseConfig = {
-  apiKey: "AIzaSyBjVTL7ErtxxlxfGeEMjHqIKKC13g05IkQ",
-  authDomain: "stats-6969.firebaseapp.com",
-  projectId: "stats-6969",
-  storageBucket: "stats-6969.appspot.com",
-  messagingSenderId: "776652011241",
-  appId: "1:776652011241:web:d39ae585e709aadd022278"
+var config = {
+  apiKey: "AIzaSyDasmRPdjGdqGlQInJvsvqUumNyFmjAQJE",
+  authDomain: "web-site-dev-6969.firebaseapp.com",
+  projectId: "web-site-dev-6969",
+  storageBucket: "web-site-dev-6969.appspot.com",
+  messagingSenderId: "1024239114392",
+  appId: "1:1024239114392:web:54a5ce7bfa8086ebd698ed"
 };
+firebase.initializeApp(config);
+
+
+// Google OAuth Client ID, needed to support One-tap sign-up.
+// Set to null if One-tap sign-up is not supported.
+var CLIENT_ID =
+    'YOUR_OAUTH_CLIENT_ID';

@@ -19,7 +19,7 @@
 /**
  * @return {!Object} The FirebaseUI config.
  */
-function getUiConfig() {
+ function getUiConfig() {
   return {
     'callbacks': {
       // Called when the user has been successfully signed in.
@@ -36,36 +36,78 @@ function getUiConfig() {
         return false;
       }
     },
-    // Opens IDP Providers sign-in flow in a popup.
-    'signInFlow': 'popup',
+    // Default is to redirect to IDP Providers.
+    // Uncomment line below to open IDP Providers sign-in flow in a popup.
+    // 'signInFlow': 'popup',
     'signInOptions': [
-          // Leave the lines as is for the providers you want to offer your users.
-          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-          {
-            provider: 'apple.com',
-          },
-           //microsoft.com client secret expires 7/18/2023. 
-           {
-            provider: 'microsoft.com',
-            loginHintKey: 'login_hint'
-          },
-          firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-
-        /* Providers not used-
-          firebase.auth.GithubAuthProvider.PROVIDER_ID,
-          firebase.auth.EmailAuthProvider.PROVIDER_ID,
-          firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-          firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
-           */
-        ],
+       // Leave the lines as is for the providers you want to offer your users.
+      firebase.auth.EmailAuthProvider.PROVIDER_ID,
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      /* Providers not used-
+       {
+         provider: 'apple.com',
+       },
+        //microsoft.com client secret expires 7/18/2023. 
+        {
+         provider: 'microsoft.com',
+         loginHintKey: 'login_hint'
+       },
+      firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+      firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+      firebase.auth.GithubAuthProvider.PROVIDER_ID,
+      firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+      firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
+       */  
+    ],
     // Terms of service url.
-    tosUrl: 'tos.html',
+    'tosUrl': 'https://www.google.com',
     // Privacy policy url.
-    'privacyPolicyUrl': 'privacy-policy.html',
+    'privacyPolicyUrl': 'https://www.google.com',
+    'credentialHelper': CLIENT_ID && CLIENT_ID != 'YOUR_OAUTH_CLIENT_ID' ?
+        firebaseui.auth.CredentialHelper.GOOGLE_YOLO :
+        firebaseui.auth.CredentialHelper.NONE,
+    'adminRestrictedOperation': {
+      status: getAdminRestrictedOperationStatus()
+    }
   };
 }
+/* 
+//removing the call to objects in storage
+// Make a URL for the file on storage for logged in users
+var auth = firebase.auth();
 
+var storageRef = firebase.storage().ref();
+// Create a reference to the file we want to download
+var trailsRef = storageRef.child('trails/index.html');
+
+// Get the download URL
+trailsRef.getDownloadURL()
+.then((url) => {
+  // Insert url into an <a> tag to "download"
+    document.getElementById('linkbox').innerHTML = '<a href="' +  url + '">Proceed to Stats and maps</a>';
+})
+.catch((error) => {
+  // A full list of error codes is available at
+  // https://firebase.google.com/docs/storage/web/handle-errors
+  switch (error.code) {
+    case 'storage/object-not-found':
+      // File doesn't exist
+      break;
+    case 'storage/unauthorized':
+      // User doesn't have permission to access the object
+      break;
+    case 'storage/canceled':
+      // User canceled the upload
+      break;
+
+    // ...
+
+    case 'storage/unknown':
+      // Unknown error occurred, inspect the server response
+      break;
+  }
+});
+ */
 // Initialize the FirebaseUI Widget using Firebase.
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 // Disable auto-sign in.
@@ -77,7 +119,9 @@ ui.disableAutoSignIn();
  */
 function getWidgetUrl() {
   return '/widget#recaptcha=' + getRecaptchaMode() + '&emailSignInMethod=' +
-      getEmailSignInMethod();
+      getEmailSignInMethod() + '&disableEmailSignUpStatus=' +
+      getDisableSignUpStatus() + '&adminRestrictedOperationStatus=' +
+      getAdminRestrictedOperationStatus();
 }
 
 
@@ -172,10 +216,14 @@ function handleConfigChange() {
       'input[name="emailSignInMethod"]:checked').value;
   var currentDisableSignUpStatus =
       document.getElementById("email-disableSignUp-status").checked;
+  var currentAdminRestrictedOperationStatus =
+      document.getElementById("admin-restricted-operation-status").checked;
   location.replace(
       location.pathname + '#recaptcha=' + newRecaptchaValue +
       '&emailSignInMethod=' + newEmailSignInMethodValue +
-      '&disableEmailSignUpStatus=' + currentDisableSignUpStatus);
+      '&disableEmailSignUpStatus=' + currentDisableSignUpStatus +
+      '&adminRestrictedOperationStatus=' +
+      currentAdminRestrictedOperationStatus);
   // Reset the inline widget so the config changes are reflected.
   ui.reset();
   ui.start('#firebaseui-container', getUiConfig());
@@ -184,20 +232,22 @@ function handleConfigChange() {
 
 /**
  * Initializes the app.
- */
+*/
 
-var initApp = function() {
+ var initApp = function() {
+  document.getElementById('sign-out').addEventListener('click', function() {
+    firebase.auth().signOut();
+  });
+document.getElementById('delete-account').addEventListener(
+      'click', function() {
+        deleteAccount();
+      });
+     /** 
   document.getElementById('sign-in-with-redirect').addEventListener(
       'click', signInWithRedirect);
   document.getElementById('sign-in-with-popup').addEventListener(
       'click', signInWithPopup);
-  document.getElementById('sign-out').addEventListener('click', function() {
-    firebase.auth().signOut();
-  });
-  document.getElementById('delete-account').addEventListener(
-      'click', function() {
-        deleteAccount();
-      });
+  
   document.getElementById('recaptcha-normal').addEventListener(
       'change', handleConfigChange);
   document.getElementById('recaptcha-invisible').addEventListener(
@@ -219,6 +269,11 @@ var initApp = function() {
       'change', handleConfigChange);
   document.getElementById("email-disableSignUp-status").checked =
       getDisableSignUpStatus();  
+  document.getElementById('admin-restricted-operation-status').addEventListener(
+      'change', handleConfigChange);
+  document.getElementById("admin-restricted-operation-status").checked =
+      getAdminRestrictedOperationStatus();  
+   */   
 };
 
 window.addEventListener('load', initApp);

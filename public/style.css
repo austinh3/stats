@@ -2,10 +2,6 @@
   box-sizing: border-box;
 }
 
-html, body {
-  font-family: 'Roboto', 'Helvetica', sans-serif;
-}
-
 body {
   margin: 0;
 }
@@ -15,9 +11,7 @@ body {
   margin: 0 auto;
   text-align: center;
 }
-#list {
-  text-align: left;
-}
+
 .clearfix {
   clear: both;
 }
