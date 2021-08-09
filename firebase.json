@@ -1,6 +1,5 @@
 {
   "hosting": {
-    "target": "stats",
     "public": "public",
     "ignore": [
       "firebase.json",
@@ -20,6 +19,9 @@
     },
     "ui": {
       "enabled": true
+    },
+    "storage": {
+      "port": 9199
     }
   }
 }
