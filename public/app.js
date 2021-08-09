@@ -40,10 +40,7 @@
     // Uncomment line below to open IDP Providers sign-in flow in a popup.
     // 'signInFlow': 'popup',
     'signInOptions': [
-       // Leave the lines as is for the providers you want to offer your users.
-      firebase.auth.EmailAuthProvider.PROVIDER_ID,
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-      /* Providers not used-
        {
          provider: 'apple.com',
        },
@@ -53,6 +50,8 @@
          loginHintKey: 'login_hint'
        },
       firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+      /* Providers not used-
+      firebase.auth.EmailAuthProvider.PROVIDER_ID,
       firebase.auth.FacebookAuthProvider.PROVIDER_ID,
       firebase.auth.GithubAuthProvider.PROVIDER_ID,
       firebase.auth.PhoneAuthProvider.PROVIDER_ID,
@@ -84,7 +83,7 @@ var trailsRef = storageRef.child('trails/index.html');
 trailsRef.getDownloadURL()
 .then((url) => {
   // Insert url into an <a> tag to "download"
-    document.getElementById('linkbox').innerHTML = '<a href="' +  url + '">Proceed to Stats and maps</a>';
+    document.getElementById('linkbox').innerHTML = '<p><a href="' +  url + '">Proceed to Stats and maps</a></p>';
 })
 .catch((error) => {
   // A full list of error codes is available at
