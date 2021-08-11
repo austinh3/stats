@@ -58,16 +58,14 @@
       firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
        */  
     ],
-            // Terms of service url.
-            'tosUrl': 'tos.html',
-                // Privacy policy url.
-            'privacyPolicyUrl': 'privacy-policy.html',
-    'credentialHelper': CLIENT_ID && CLIENT_ID != 'YOUR_OAUTH_CLIENT_ID' ?
-        firebaseui.auth.CredentialHelper.GOOGLE_YOLO :
-        firebaseui.auth.CredentialHelper.NONE,
-    'adminRestrictedOperation': {
-      status: getAdminRestrictedOperationStatus()
-    }
+      'tosUrl': 'tos.html',
+      'privacyPolicyUrl': 'privacy-policy.html',
+      'credentialHelper': CLIENT_ID && CLIENT_ID != 'YOUR_OAUTH_CLIENT_ID' ?
+      firebaseui.auth.CredentialHelper.GOOGLE_YOLO :
+      firebaseui.auth.CredentialHelper.NONE,
+      'adminRestrictedOperation': {
+         status: getAdminRestrictedOperationStatus()
+       }
   };
 }
 /* 
@@ -237,9 +235,7 @@ function handleConfigChange() {
   document.getElementById('sign-out').addEventListener('click', function() {
     firebase.auth().signOut();
   });
-document.getElementById('delete-account').addEventListener(
-      'click', function() {
-  // does  below deleteAccount(); need firebase.auth(). prefixed to it?
+  document.getElementById('delete-account').addEventListener('click', function() {
         deleteAccount();
       });
      /** 
