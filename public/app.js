@@ -58,10 +58,10 @@
       firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
        */  
     ],
-    // Terms of service url.
-    'tosUrl': 'https://www.google.com',
-    // Privacy policy url.
-    'privacyPolicyUrl': 'https://www.google.com',
+            // Terms of service url.
+            'tosUrl': 'tos.html',
+                // Privacy policy url.
+            'privacyPolicyUrl': 'privacy-policy.html',
     'credentialHelper': CLIENT_ID && CLIENT_ID != 'YOUR_OAUTH_CLIENT_ID' ?
         firebaseui.auth.CredentialHelper.GOOGLE_YOLO :
         firebaseui.auth.CredentialHelper.NONE,
@@ -191,7 +191,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 var deleteAccount = function() {
   firebase.auth().currentUser.delete().catch(function(error) {
     if (error.code == 'auth/requires-recent-login') {
-      // The user's credential is too old. She needs to sign in again.
+      // The user's credential is too old. They need to sign in again.
       firebase.auth().signOut().then(function() {
         // The timeout allows the message to be displayed after the UI has
         // changed to the signed out state.
@@ -239,6 +239,7 @@ function handleConfigChange() {
   });
 document.getElementById('delete-account').addEventListener(
       'click', function() {
+  // does  below deleteAccount(); need firebase.auth(). prefixed to it?
         deleteAccount();
       });
      /** 
