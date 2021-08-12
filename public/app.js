@@ -201,7 +201,6 @@ var deleteAccount = function() {
   });
 };
 
-
 /**
  * Handles when the user changes the reCAPTCHA, email signInMethod or email
  * disableSignUp config.
