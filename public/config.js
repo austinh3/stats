@@ -13,12 +13,12 @@
  */
 
 var config = {
-  apiKey: "AIzaSyDasmRPdjGdqGlQInJvsvqUumNyFmjAQJE",
-  authDomain: "web-site-dev-6969.firebaseapp.com",
-  projectId: "web-site-dev-6969",
-  storageBucket: "web-site-dev-6969.appspot.com",
-  messagingSenderId: "1024239114392",
-  appId: "1:1024239114392:web:54a5ce7bfa8086ebd698ed"
+  apiKey: "AIzaSyBjVTL7ErtxxlxfGeEMjHqIKKC13g05IkQ",
+  authDomain: "stats-6969.firebaseapp.com",
+  projectId: "stats-6969",
+  storageBucket: "stats-6969.appspot.com",
+  messagingSenderId: "776652011241",
+  appId: "1:776652011241:web:d39ae585e709aadd022278"
 };
 firebase.initializeApp(config);
 
