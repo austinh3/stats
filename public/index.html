@@ -12,8 +12,8 @@
 
   <script src="config.js"></script>
   <script src="common.js"></script>
+   <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-  <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
   <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
   <link rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,24 +44,30 @@
             <div class="clearfix"></div>
           </div>
           <section>
-          <p>
-            <button id="sign-out">Sign Out</button>
-            <button id="delete-account">Delete account</button>
-          </p>
-          <ul>
-            <ui>Last Sunday's Trail</ui>
-            <ui>Hound Trail Counts</ui>
-            <ui>Map of Trails this Junta Year</ui>
-            <ui>Last Year's History</ui>
-            <ui>AH3 Timeline</ui>
-            <ui>Hash Trash (Experimental)</ui>
-          </ul>
+            <p>
+              <button id="sign-out">Sign Out</button>
+              <button id="delete-account">Delete account</button>
+            </p>
           </section>
+          <aside class="menu">
+            <ul class="menu-list">
+              <ui><a href="" >Last Sunday's Trail</a></ui>
+              <ui><a href="" >Hound Trail Counts</a></ui>
+              <ui><a href="" >Map of Trails this Junta Year</a></ui>
+              <ui><a href="" >Last Year's History</a></ui>
+              <ui><a href="" >AH3 Timeline</a></ui>
+              <ui><a href="" >Hash Trash (Experimental)</a></ui>
+            </ul>
+          </aside>
         </div>
         <div id="user-signed-out" class="hidden">
-          <span class="content is-medium"><p>You are signed out.</p></span>
+          <span class="content is-medium">
+            <p>You are signed out.</p>
+          </span>
           <div id="firebaseui-spa">
-           <span class="content is-medium"><p>Choose your preferred identity provider to sign in.</p> </span>
+            <span class="content is-medium">
+              <p>Choose your preferred identity provider to sign in.</p>
+            </span>
             <div id="firebaseui-container"></div>
           </div>
         </div>
