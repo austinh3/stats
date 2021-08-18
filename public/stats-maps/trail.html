@@ -4,93 +4,79 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AH3 - Current trail</title>
-  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-  <link rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+  <link href="../style.css" rel="stylesheet" type="text/css" media="screen" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 
-  <script type="text/javascript">
-    initApp = function () {
-      firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-          // User is signed in.
-          var displayName = user.displayName;
-          var email = user.email;
-          var emailVerified = user.emailVerified;
-          var photoURL = user.photoURL;
-          var uid = user.uid;
-          var phoneNumber = user.phoneNumber;
-          var providerData = user.providerData;
-          user.getIdToken().then(function (accessToken) {
-            document.getElementById('sign-in-status').textContent = 'Signed in';
-            document.getElementById('sign-in').textContent = 'Sign out';
-            document.getElementById('account-details').textContent = JSON.stringify({
-              displayName: displayName,
-              email: email,
-              emailVerified: emailVerified,
-              phoneNumber: phoneNumber,
-              photoURL: photoURL,
-              uid: uid,
-              accessToken: accessToken,
-              providerData: providerData
-            }, null, '  ');
-          });
-        } else {
-          // User is signed out.
-          document.getElementById('sign-in-status').textContent = 'Signed out';
-          document.getElementById('sign-in').textContent = 'Sign in';
-          document.getElementById('account-details').textContent = 'null';
-        }
-      }, function (error) {
-        console.log(error);
-      });
-    };
-
-    window.addEventListener('load', function () {
-      initApp()
-    });
-  </script>
-
+  <title>AH3 - Last Sunday</title>
 </head>
 
 <body>
-  <header>
-
+  <header class="hero is-small is-warning">
+    <div class="hero-body">
+      <h1 class="title">
+        Last Sunday's trail
+      </h1>
   </header>
-  <main>
-    <section id="content is-medium">
-      <h1>
-        This week's trail</h1>
-      <ul>
-        <ui>Other stuff</ui>
-      </ul>
-      <p>Logout</p>
-      <p><a href="public/index.html">AH3 Stats and maps</a></p>
-    </section>
-  </main>
-  <footer>
+  <div class="columns is-desktop">
+    <div class="column"></div>
+    <div class="column is-four-fifths">
+      <section class="content is-medium">
 
+        <p>Some content Last Sunday's trail</p>
+      </section>
+      <div class="column"></div>
+    </div>
+  </div>
+  <footer>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarData">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarData" class="navbar-menu">
+        <div class="navbar-start">
+          <!-- <a class="navbar-item" href="trail.html">Last Sunday's Trail</a> -->
+          <a class="navbar-item" href="trails.html">Hound Trail Counts</a>
+          <a class="navbar-item" href="trail-summary.html">Map of Trails this Junta Year</a>
+          <a class="navbar-item" href="year-summary.html">Last Year's History</a>
+          <a class="navbar-item" href="ah3-history.html">AH3 Timeline</a>
+          <a class="navbar-item" href="#">Hash Trash (Experimental)</a>
+        </div>
+      </div>      
+    </nav>
   </footer>
-  <!-- *******************************************************************************************
-    * TODO(DEVELOPER): Paste the initialization snippet from:
-    * Firebase Console > Overview > Add Firebase to your web app. *
-     ***************************************************************************************** -->
   <script>
-    // Stats app's Firebase configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyBjVTL7ErtxxlxfGeEMjHqIKKC13g05IkQ",
-      authDomain: "stats-6969.firebaseapp.com",
-      projectId: "stats-6969",
-      storageBucket: "stats-6969.appspot.com",
-      messagingSenderId: "776652011241",
-      appId: "1:776652011241:web:d39ae585e709aadd022278"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
+    // bulma.io CSS Navbar helper
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // Get all "navbar-burger" elements
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+      // Check if there are any navbar burgers
+      if ($navbarBurgers.length > 0) {
+
+        // Add a click event on each of them
+        $navbarBurgers.forEach(el => {
+          el.addEventListener('click', () => {
+
+            // Get the target from the "data-target" attribute
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+
+            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+
+          });
+        });
+      }
+
+    });
   </script>
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
 </body>
 
 </html>

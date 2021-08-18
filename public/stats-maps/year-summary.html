@@ -1,11 +1,82 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AH3 - Year Summary</title>
+    <link href="../style.css" rel="stylesheet" type="text/css" media="screen" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+    <title>AH3 - Summary last year</title>
 </head>
+
 <body>
-    <H1>Last Year's History</H1>
+    <header class="hero is-small is-warning">
+        <div class="hero-body">
+            <h1 class="title">
+                Last year's summary
+            </h1>
+    </header>
+    <div class="columns is-desktop">
+        <div class="column"></div>
+        <div class="column is-four-fifths">
+            <section class="content is-medium">
+
+                <p>Some content Last year's summary</p>
+            </section>
+            <div class="column"></div>
+        </div>
+    </div>
+    <footer>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarData">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarData" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="trail.html">Last Sunday's Trail</a>
+                    <a class="navbar-item" href="trails.html">Hound Trail Counts</a>
+                    <a class="navbar-item" href="trail-summary.html">Map of Trails this Junta Year</a>
+                    <!-- <a class="navbar-item" href="year-summary.html">Last Year's History</a> -->
+                    <a class="navbar-item" href="ah3-history.html">AH3 Timeline</a>
+                    <a class="navbar-item" href="#">Hash Trash (Experimental)</a>
+                </div>
+            </div>
+        </nav>
+    </footer>
+    <script>
+        // bulma.io CSS Navbar helper
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Get all "navbar-burger" elements
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+            // Check if there are any navbar burgers
+            if ($navbarBurgers.length > 0) {
+
+                // Add a click event on each of them
+                $navbarBurgers.forEach(el => {
+                    el.addEventListener('click', () => {
+
+                        // Get the target from the "data-target" attribute
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+
+                        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+
+                    });
+                });
+            }
+
+        });
+    </script>
 </body>
+
 </html>
