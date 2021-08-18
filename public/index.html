@@ -12,7 +12,7 @@
 
   <script src="config.js"></script>
   <script src="common.js"></script>
-   <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+  <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
   <link rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
@@ -23,58 +23,60 @@
   <header>
 
   </header>
+  <div class="columns is-desktop">
+    <div class="column is-half is-offset-one-quarter">
+      <div id="container">
+        <section class="content is-medium">
+          <h1>AH3 Stats and Maps</h1>
 
-  <div id="container">
-    <section class="content is-medium">
-      <h1>AH3 Stats and Maps</h1>
-
-      <div id="loading">Loading...</div>
-    </section>
-    <div id="loaded" class="hidden">
-      <div id="main">
-        <div id="user-signed-in" class="hidden">
-          <div id="user-info">
-            <div id="photo-container">
-              <img id="photo">
+          <div id="loading">Loading...</div>
+        </section>
+        <div id="loaded" class="hidden">
+          <div id="main">
+            <div id="user-signed-in" class="hidden">
+              <div id="user-info">
+                <div id="photo-container">
+                  <img id="photo">
+                </div>
+                <div id="name"></div>
+                <div id="email"></div>
+                <div id="phone"></div>
+                <div id="is-new-user"></div>
+                <div class="clearfix"></div>
+              </div>
+              <section>
+                <p>
+                  <button id="sign-out">Sign Out</button>
+                  <button id="delete-account">Delete account</button>
+                </p>
+              </section>
+              <aside class="menu" style="text-align: left">
+                <ul class="menu-list">
+                  <ui><a href="stats-maps/trail.html">Last Sunday's Trail</a></ui>
+                  <ui><a href="stats-maps/trails.html">Hound Trail Counts</a></ui>
+                  <ui><a href="stats-maps/trail-summary.html">Map of Trails this Junta Year</a></ui>
+                  <ui><a href="stats-maps/year-summary.html">Last Year's History</a></ui>
+                  <ui><a href="stats-maps/ah3-history.html">AH3 Timeline</a></ui>
+                  <ui><a href="#">Hash Trash (Experimental)</a></ui>
+                </ul>
+              </aside>
             </div>
-            <div id="name"></div>
-            <div id="email"></div>
-            <div id="phone"></div>
-            <div id="is-new-user"></div>
-            <div class="clearfix"></div>
-          </div>
-          <section>
-            <p>
-              <button id="sign-out">Sign Out</button>
-              <button id="delete-account">Delete account</button>
-            </p>
-          </section>
-          <aside class="menu" style="text-align: left">
-            <ul class="menu-list">
-              <ui><a href="stats-maps/trail.html" >Last Sunday's Trail</a></ui>
-              <ui><a href="stats-maps/trails.html" >Hound Trail Counts</a></ui>
-              <ui><a href="stats-maps/trail-summary.html" >Map of Trails this Junta Year</a></ui>
-              <ui><a href="stats-maps/year-summary.html" >Last Year's History</a></ui>
-              <ui><a href="stats-maps/ah3-history.html" >AH3 Timeline</a></ui>
-              <ui><a href="#" >Hash Trash (Experimental)</a></ui>
-            </ul>
-          </aside>
-        </div>
-        <div id="user-signed-out" class="hidden">
-          <span class="content is-medium">
-            <p>You are signed out.</p>
-          </span>
-          <div id="firebaseui-spa">
-            <span class="content is-medium">
-              <p>Choose your preferred identity provider to sign in.</p>
-            </span>
-            <div id="firebaseui-container"></div>
+            <div id="user-signed-out" class="hidden">
+              <span class="content is-medium">
+                <p>You are signed out.</p>
+              </span>
+              <div id="firebaseui-spa">
+                <span class="content is-medium">
+                  <p>Choose your preferred identity provider to sign in.</p>
+                </span>
+                <div id="firebaseui-container"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
   <script src="app.js"></script>
 </body>
 
