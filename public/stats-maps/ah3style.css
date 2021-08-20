@@ -1,0 +1,158 @@
+.xxxxxx {
+        font-size: 14px;
+        font-weight: bold;
+        font-family: san-serif, arial, helvetica;
+        }
+.style5 {
+        font-size: 14px;
+        font-weight: bold;
+        font-family: san-serif, arial, helvetica;
+        }
+.style5u {
+         font-size: 14px;
+         font-weight: bold;
+        text-decoration: underline;
+         font-family: san-serif, arial, helvetica;
+         }
+.style12 {
+         font-size: 12px;
+         font-family: san-serif, arial, helvetica;
+         }
+.style5light {
+             font-size: 14px;
+             font-weight: lighter;
+             font-family: san-serif, arial, helvetica;
+             }
+.style5red {
+           font-size: 14px;
+           font-weight: bold;
+           font-family: san-serif, arial, helvetica;
+           color:red;
+           }
+.style5yellow {
+              font-size: 14px;
+              font-weight: bold;
+              font-family: san-serif, arial, helvetica;
+              color: yellow;
+              }
+.style5b {
+         font-size: 16px;
+         font-weight: bold;
+         font-family: san-serif, arial, helvetica;
+         }
+.stylemono {
+           font-size: 16px;
+           font-weight: bold;
+           font-family: monospace;
+           }
+.style5s {
+         font-size: 10px;
+         font-weight: bold;
+         font-family: san-serif, arial, helvetica;
+         color: green;
+         }
+.style5sred {
+            font-size: 10px;
+            font-weight: bold;
+            font-family: san-serif, arial, helvetica;
+            color: red;
+            }
+.style5sblue {
+             font-size: 10px;
+             font-weight: bold;
+             font-family: san-serif, arial, helvetica;
+             color: blue;
+             }
+.style8 {
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+        font-family: san-serif, arial, helvetica;
+        }
+.style9 {
+        font-size: 20px;
+        font-weight: bold;
+        font-family: san-serif, arial, helvetica;
+        }
+.table8 {
+        clear: none;
+        float: none;
+        margin: auto;
+        }
+.table5 {
+        clear: none;
+        float: none;
+        vertical-align:text-top;
+        width: 100%;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: san-serif, arial, helvetica;
+        }
+.table6 {
+        clear: none;
+        float: none;
+        vertical-align:text-top;
+        width: 100%;
+        text-align: right;
+        font-size: 14px;
+        font-weight: bold;
+        font-family: san-serif, arial, helvetica;
+        }
+.style6 {
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: underline;
+        font-family: san-serif, arial, helvetica;
+        }
+.style3 {
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: underline;
+        font-family: san-serif, arial, helvetica;
+        }
+.style2 {
+        font-size: 24px;
+        font-weight: bold;
+        font-family: san-serif, arial, helvetica;
+        }
+.style2c {
+         text-align: center;
+         line-height: 3;
+         font-size: 24px;
+         color: #663300;
+         font-weight: bold;
+         font-family: san-serif, arial, helvetica;
+         }
+.style3b {
+         font-size: 18px;
+         font-weight: bold;
+         text-decoration:blink;
+         font-family: san-serif, arial, helvetica;
+         }
+.stylelist {
+           width:100%;
+           font-family: san-serif, arial, helvetica;
+           font-size:14px;
+           font-weight:bold;
+           padding:10px;
+           margin-right:5px;
+           }
+.stylelistbig {
+              width:100%;
+              font-family: san-serif, arial, helvetica;
+              font-size:18px;
+              font-weight:bold;
+              padding:10px;
+              margin-right:5px;
+              }
+.stylexu {
+         font-size: 10px;
+         text-decoration: underline;
+         font-weight: bold;
+         font-family: san-serif, arial, helvetica;
+        }
+.stylex {
+        font-size: 10px;
+        font-weight: bold;
+        font-family: san-serif, arial, helvetica;
+        }
